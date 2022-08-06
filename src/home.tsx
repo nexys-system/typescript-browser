@@ -25,7 +25,17 @@ const ArgForm = ({ setExec }: { setExec: (a: any) => void }) => {
 
   return (
     <form onSubmit={handleExec}>
-      <input type="text" value={arg} onChange={(v) => setArg(v.target.value)} />
+      <div className="mb-3">
+        <label className="form-label">
+          Arg (<code>data</code>):
+        </label>
+        <input
+          type="text"
+          className="form-control"
+          value={arg}
+          onChange={(v) => setArg(v.target.value)}
+        />
+      </div>
       <button className="btn btn-primary" type="submit">
         Exec
       </button>
@@ -86,11 +96,15 @@ export default () => {
     <form onSubmit={handleSubmit}>
       {error && <p className="alert alert-danger">{error}</p>}
 
-      <textarea
-        className="form-control"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
+      <div className="mb-3">
+        <label className="form-label">Typescript Code:</label>
+        <textarea
+          className="form-control"
+          value={value}
+          rows={15}
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </div>
       <button className="btn btn-primary" type="submit">
         Submit
       </button>
