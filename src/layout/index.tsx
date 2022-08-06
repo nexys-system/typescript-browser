@@ -1,22 +1,16 @@
 import Footer from "./footer";
-import Header from "./header";
 
-import { BrowserRouter as Router } from "react-router-dom";
-import { basename } from "../config";
-
-function Layout({ children }: { children: any }) {
+export default ({ children }: { children: JSX.Element }) => {
   return (
-    <Router basename={basename}>
-      <div className="d-flex flex-column min-vh-100">
-        <Header />
+    <>
+      <div className="container">
+        <h1>Typescript Execution in Browser</h1>
 
-        <main className="flex-fill">
-          <div className="container">{children} </div>
-        </main>
-
-        <Footer />
+        <div className="row">
+          <div className="col-6">{children}</div>
+        </div>
       </div>
-    </Router>
+      <Footer />
+    </>
   );
-}
-export default Layout;
+};
